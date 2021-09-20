@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_movie">MovieActivity</string>
+    <string name="no_image">No Image</string>
+    <string name="sample_description">A long description is a way to provide long alternative text
+        for non-text elements, such as images. Generally, alternative text exceeding 250 characters,
+        which cannot be made more concise without making it less descriptive or meaningful, should
+        have a long description. Examples of suitable use of long description are charts, graphs,
+        maps, infographics, and other complex images.\n\nLike alternative text, long description
+        should be descriptive and meaningful. It should also include all text that is incorporated
+        into the image. A long description should provide visually-impaired users with as much
+        information as sighted users would understand from the image.\n\nA long description is a
+        way to provide long alternative text
+        for non-text elements, such as images. Generally, alternative text exceeding 250 characters,
+        which cannot be made more concise without making it less descriptive or meaningful, should
+        have a long description. Examples of suitable use of long description are charts, graphs,
+        maps, infographics, and other complex images.\n\nLike alternative text, long description
+        should be descriptive and meaningful. It should also include all text that is incorporated
+        into the image. A long description should provide visually-impaired users with as much
+        information as sighted users would understand from the image.</string>
+    <string name="movie_summary">Summary</string>
+    <string name="movie_title">Movie Title</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_movie_query_text">Search Movie...</string>
+    <string name="trending_movies">Trending Movies</string>
+    <string name="empty_movie_button_text">[Empty Movie]</string>
+</resources>
