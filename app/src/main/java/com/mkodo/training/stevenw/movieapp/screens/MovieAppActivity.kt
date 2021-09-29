@@ -17,6 +17,7 @@ class MovieAppActivity : AppCompatActivity() {
         binding = ActivityMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         supportFragmentManager
             .beginTransaction()
             .add(R.id.movie_master, MovieNavigationFragment())
