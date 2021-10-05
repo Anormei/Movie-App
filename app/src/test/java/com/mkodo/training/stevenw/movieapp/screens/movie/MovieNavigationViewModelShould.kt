@@ -42,22 +42,6 @@ class MovieNavigationViewModelShould {
     }
 
     @Test
-    fun `make a call on repository when loading a movie`() {
-        navigationViewModel.loadMovie("666243")
-        coVerify(exactly = 1) { repository.getMovie("666243")}
-    }
-
-    @Test
-    fun `display a movie`() {
-        val movie = Movie("title", "overview", "poster_path")
-        coEvery{repository.getMovie(any())} returns movie
-
-        navigationViewModel.loadMovie("1")
-        assertTrue(navigationViewModel.movie.value == movie)
-        coVerify(exactly = 1) { repository.getMovie("1")}
-    }
-
-    @Test
     fun `display trending movies`() {
         val movieResults = MovieResults(listOf(Movie("Title", "Overview", "Image")))
         coEvery{repository.getTrendingMovies(any(), any())} returns movieResults
