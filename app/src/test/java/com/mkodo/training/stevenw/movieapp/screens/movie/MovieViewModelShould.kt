@@ -50,6 +50,16 @@ class MovieViewModelShould {
     }
 
     @Test
+    fun `display a movie`() {
+        val movie = Movie("title", "overview", "poster_path")
+        coEvery{repository.getMovie(any())} returns movie
+
+        viewModel.loadMovie("1")
+        assertTrue(viewModel.movie.value == movie)
+        coVerify(exactly = 1) { repository.getMovie("1")}
+    }
+
+    @Test
     fun `display trending movies`() {
         val movieResults = MovieResults(listOf(Movie("Title", "Overview", "Image")))
         coEvery{repository.getTrendingMovies(any(), any())} returns movieResults

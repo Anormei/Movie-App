@@ -9,11 +9,12 @@ import com.mkodo.training.stevenw.movieapp.api.TheMovieDbApi
 import com.mkodo.training.stevenw.movieapp.models.Movie
 import kotlinx.coroutines.launch
 
-class MovieViewModel(val movieRepository: MovieRepository = MovieRepositoryImpl(TheMovieDbApi.create())) : ViewModel() {
+class MovieViewModel(private val movieRepository: MovieRepository = MovieRepositoryImpl(TheMovieDbApi.create())) : ViewModel() {
 
     //TODO Hook-up showError in activity
     val showError = MutableLiveData<String>()
     val movies = MutableLiveData<List<Movie>>()
+    val movie = MutableLiveData<Movie>()
 
     fun loadTrendingMovies(mediaType: String, timeWindow: String) {
         viewModelScope.launch{
@@ -28,7 +29,8 @@ class MovieViewModel(val movieRepository: MovieRepository = MovieRepositoryImpl(
 
     fun loadMovie(id: String){
         viewModelScope.launch{
-            movieRepository.getMovie(id)
+            val result = movieRepository.getMovie(id)
+            movie.value = result
         }
     }
 }
