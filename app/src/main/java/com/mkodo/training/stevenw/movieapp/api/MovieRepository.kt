@@ -6,7 +6,8 @@ import com.mkodo.training.stevenw.movieapp.models.MovieResults
 
 interface MovieRepository {
 
-    suspend fun getMovie(data: MutableLiveData<Movie>, id: String)
+    suspend fun getMovie(id: String): Movie
+
     suspend fun getTrendingMovies(
         mediaType: String,
         timeWindow: String

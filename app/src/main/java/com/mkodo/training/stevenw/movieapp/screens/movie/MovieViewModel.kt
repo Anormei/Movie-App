@@ -18,11 +18,17 @@ class MovieViewModel(val movieRepository: MovieRepository = MovieRepositoryImpl(
     fun loadTrendingMovies(mediaType: String, timeWindow: String) {
         viewModelScope.launch{
             try {
-                val results = movieRepository.getTrendingMovies("movie", "week")
+                val results = movieRepository.getTrendingMovies(mediaType, timeWindow)
                 movies.value = results.results
             } catch(e: Throwable) {
                 showError.value = "Something went wrong"
             }
+        }
+    }
+
+    fun loadMovie(id: String){
+        viewModelScope.launch{
+            movieRepository.getMovie(id)
         }
     }
 }
