@@ -34,12 +34,13 @@
             <ImageView
                 android:id="@+id/movie_image"
                 android:background="@color/img_background"
-                android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal"
                 android:layout_height="480dp"
                 android:layout_marginVertical="20dp"
-                android:layout_width="320dp" />
+                android:layout_width="320dp"
+                android:contentDescription="@string/image_poster_description"/>
 
             <TextView
                 android:layout_height="wrap_content"
@@ -52,7 +53,7 @@
                 android:id="@+id/movie_description_text_view"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="@string/sample_description" />
+                tools:text="@string/sample_description" />
 
         </LinearLayout>
 
