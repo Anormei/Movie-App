@@ -37,10 +37,7 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
         binding.trendingRecyclerView.layoutManager = GridLayoutManager(container?.context, 2)
         binding.trendingRecyclerView.adapter = trendingAdapter
 
-        viewModel.movies.observe(viewLifecycleOwner, {
-            trendingAdapter.movies = it
-            trendingAdapter.notifyDataSetChanged()
-        })
+        observeModel()
 
         viewModel.loadTrendingMovies("movie", "week")
 
@@ -64,6 +61,22 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
                 .addToBackStack(null)
                 .commit()
         }
+    }
+
+    private fun observeModel(){
+        viewModel.movies.observe(viewLifecycleOwner, {
+            trendingAdapter.movies = it
+            trendingAdapter.notifyDataSetChanged()
+        })
+
+        viewModel.showError.observe(viewLifecycleOwner, {
+            showError(getString(it))
+        })
+    }
+
+    private fun showError(description: String){
+        val errorDialog = ErrorDialog(description)
+        errorDialog.show(parentFragmentManager, ErrorDialog.TAG)
     }
 
 }

@@ -13,6 +13,10 @@ class ErrorDialog(private val description: String) : DialogFragment() {
     private var _binding: DialogErrorBinding? = null
     private val binding get() = _binding!!
 
+    companion object {
+        const val TAG = "errorDialog"
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
