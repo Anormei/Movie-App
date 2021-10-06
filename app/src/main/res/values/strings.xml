@@ -7,8 +7,6 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_movie">MovieActivity</string>
     <string name="no_image">No Image</string>
     <string name="sample_description">A long description is a way to provide long alternative text
@@ -35,4 +33,6 @@
     <string name="error_title">Something went wrong</string>
     <string name="ok_button_text">OK</string>
     <string name="image_poster_description">An image of a movie poster</string>
+    <string name="error_loading_movies">An error occurred trying to load movies, please check your connection and try again.</string>
+    <string name="error_loading_single_movie">An error occurred trying to load movies, please check your connection and try again.</string>
 </resources>

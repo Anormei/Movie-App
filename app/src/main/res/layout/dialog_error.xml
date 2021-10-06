@@ -34,9 +34,10 @@
             app:layout_constraintTop_toBottomOf="@+id/dialog_error_text_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintStart_toEndOf="parent"
-            tools:text="An error occurred trying to load the movies, please make sure you have a stable connection and try again."/>
+            tools:text="@string/error_loading_movies"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_error_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -44,8 +45,7 @@
             app:layout_constraintTop_toBottomOf="@id/dialog_error_text_description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
