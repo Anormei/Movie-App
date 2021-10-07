@@ -2,6 +2,7 @@ package com.mkodo.training.stevenw.movieapp.screens.movie
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.mkodo.training.stevenw.movieapp.MainCoroutineRule
+import com.mkodo.training.stevenw.movieapp.R
 import com.mkodo.training.stevenw.movieapp.api.MovieRepository
 import com.mkodo.training.stevenw.movieapp.models.Movie
 import com.mkodo.training.stevenw.movieapp.models.MovieResults
@@ -56,7 +57,7 @@ class MovieNavigationViewModelShould {
         coEvery{repository.getTrendingMovies(any(), any())} throws RuntimeException()
 
         navigationViewModel.loadTrendingMovies("movie", "week")
-        assertTrue(navigationViewModel.showError.value == "Something went wrong")
+        assertTrue(navigationViewModel.showError.value == R.string.error_loading_movies)
         coVerify(exactly = 1) { repository.getTrendingMovies("movie", "week") }
     }
 }
