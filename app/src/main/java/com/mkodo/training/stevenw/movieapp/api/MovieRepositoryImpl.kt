@@ -10,7 +10,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 //TODO make it a singleton
-class MovieRepositoryImpl(private val api: TheMovieDbApi) : MovieRepository {
+object MovieRepositoryImpl : MovieRepository {
+
+    val api = TheMovieDbApi.create()
 
     //TODO local list of movies
 
