@@ -9,9 +9,10 @@ import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+//TODO make it a singleton
 class MovieRepositoryImpl(private val api: TheMovieDbApi) : MovieRepository {
 
+    //TODO local list of movies
 
     override suspend fun getMovie(id: String) =
         withContext(Dispatchers.IO) { api.getMovie(id) }

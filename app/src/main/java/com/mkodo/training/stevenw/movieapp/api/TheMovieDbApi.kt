@@ -12,7 +12,7 @@ import retrofit2.http.Path
 interface TheMovieDbApi {
 
     @GET("movie/{id}")
-    fun getMovie(@Path("id") id: String): Movie
+    suspend fun getMovie(@Path("id") id: String): Movie
 
     @GET("trending/{media_type}/{time_window}")
     suspend fun getTrending(

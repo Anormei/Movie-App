@@ -16,7 +16,6 @@ class MovieNavigationViewModel(
     )
 ) : ViewModel() {
 
-    //TODO Hook-up showError in activity
     val showError = MutableLiveData<Int>()
     val movies = MutableLiveData<List<Movie>>()
 

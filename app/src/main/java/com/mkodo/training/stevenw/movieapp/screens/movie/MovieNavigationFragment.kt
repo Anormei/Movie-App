@@ -26,12 +26,6 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
         savedInstanceState: Bundle?
     ): View? {
 
-        val arr = Array<String?>(30) { null }
-
-        for (i in arr.indices) {
-            arr[i] = "Button$i"
-        }
-
         _binding = FragmentMovieNavigationBinding.inflate(inflater, container, false)
         trendingAdapter = TrendingAdapter(context, this)
         binding.trendingRecyclerView.layoutManager = GridLayoutManager(container?.context, 2)
@@ -57,7 +51,7 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
         activity?.apply {
             this.supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.movie_master, MovieFragment(movie))
+                .replace(R.id.movie_master, MovieFragment.newInstance(movie.id))
                 .addToBackStack(null)
                 .commit()
         }
@@ -75,7 +69,7 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
     }
 
     private fun showError(description: String){
-        val errorDialog = ErrorDialog(description)
+        val errorDialog = ErrorDialog.newInstance(description)
         errorDialog.show(parentFragmentManager, ErrorDialog.TAG)
     }
 

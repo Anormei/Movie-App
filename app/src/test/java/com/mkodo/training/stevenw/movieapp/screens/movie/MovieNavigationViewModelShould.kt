@@ -44,7 +44,7 @@ class MovieNavigationViewModelShould {
 
     @Test
     fun `display trending movies`() {
-        val movieResults = MovieResults(listOf(Movie("Title", "Overview", "Image")))
+        val movieResults = MovieResults(listOf(Movie("id","Title", "Overview", "Image")))
         coEvery{repository.getTrendingMovies(any(), any())} returns movieResults
 
         navigationViewModel.loadTrendingMovies("movie", "week")

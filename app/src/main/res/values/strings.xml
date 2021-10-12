@@ -35,4 +35,6 @@
     <string name="image_poster_description">An image of a movie poster</string>
     <string name="error_loading_movies">An error occurred trying to load movies, please check your connection and try again.</string>
     <string name="error_loading_single_movie">An error occurred trying to load movies, please check your connection and try again.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
