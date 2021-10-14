@@ -27,7 +27,6 @@ class MovieFragment() : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        //Bundle().getString("id")?.let { viewModel.loadMovie(it) }
         arguments?.getString("id")?.let { viewModel.loadMovie(it) }
 
         _binding = FragmentMovieBinding.inflate(inflater, container, false)

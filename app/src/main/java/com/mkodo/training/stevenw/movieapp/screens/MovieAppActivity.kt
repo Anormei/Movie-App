@@ -17,11 +17,12 @@ class MovieAppActivity : AppCompatActivity() {
         binding = ActivityMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.movie_master, MovieNavigationFragment())
-            .commit()
+        if(savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.movie_master, MovieNavigationFragment())
+                .commit()
+        }
 
     }
 
