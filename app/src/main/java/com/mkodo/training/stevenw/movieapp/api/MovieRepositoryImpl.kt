@@ -34,11 +34,11 @@ object MovieRepositoryImpl : MovieRepository {
             movieResults
         }
 
-    private suspend fun isMovieLoaded(id: String){
+    suspend fun isMovieLoaded(id: String){
 
     }
 
-    private suspend fun loadMovie(id: String){
+    suspend fun loadMovie(id: String){
 
     }
 }

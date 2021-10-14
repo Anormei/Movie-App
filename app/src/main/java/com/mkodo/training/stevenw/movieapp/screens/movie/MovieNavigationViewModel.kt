@@ -10,7 +10,9 @@ import com.mkodo.training.stevenw.movieapp.api.TheMovieDbApi
 import com.mkodo.training.stevenw.movieapp.models.Movie
 import kotlinx.coroutines.launch
 
-class MovieNavigationViewModel(): ViewModel() {
+class MovieNavigationViewModel(
+    private val movieRepository: MovieRepository = MovieRepositoryImpl
+): ViewModel() {
 
     val showError = MutableLiveData<Int>()
     val movies = MutableLiveData<List<Movie>>()
@@ -18,7 +20,7 @@ class MovieNavigationViewModel(): ViewModel() {
     fun loadTrendingMovies(mediaType: String, timeWindow: String) {
         viewModelScope.launch {
             try {
-                val results = MovieRepositoryImpl.getTrendingMovies(mediaType, timeWindow)
+                val results = movieRepository.getTrendingMovies(mediaType, timeWindow)
                 movies.value = results.results
             } catch (e: Throwable) {
                 showError.value = R.string.error_loading_movies

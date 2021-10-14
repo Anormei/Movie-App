@@ -9,13 +9,15 @@ import com.mkodo.training.stevenw.movieapp.api.TheMovieDbApi
 import com.mkodo.training.stevenw.movieapp.models.Movie
 import kotlinx.coroutines.launch
 
-class MovieViewModel() : ViewModel() {
+class MovieViewModel(
+    private val movieRepository: MovieRepository = MovieRepositoryImpl
+) : ViewModel() {
 
     val movie = MutableLiveData<Movie>()
 
     fun loadMovie(id: String) {
         viewModelScope.launch {
-            val result = MovieRepositoryImpl.getMovie(id)
+            val result = movieRepository.getMovie(id)
             movie.value = result
         }
     }

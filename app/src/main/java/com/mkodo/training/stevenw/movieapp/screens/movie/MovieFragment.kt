@@ -43,8 +43,6 @@ class MovieFragment() : Fragment() {
                 .into(binding.movieImage)
         })
 
-
-
         return binding.root
 
     }
@@ -61,7 +59,7 @@ class MovieFragment() : Fragment() {
     companion object {
         fun newInstance(id: String) =
             MovieFragment().apply {
-                arguments = Bundle().apply{
+                arguments = Bundle().apply {
                     putString("id", id)
                 }
             }
