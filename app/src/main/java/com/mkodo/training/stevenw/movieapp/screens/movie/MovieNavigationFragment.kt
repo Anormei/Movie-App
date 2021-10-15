@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mkodo.training.stevenw.movieapp.R
 import com.mkodo.training.stevenw.movieapp.databinding.FragmentMovieNavigationBinding
 import com.mkodo.training.stevenw.movieapp.models.Movie
@@ -29,7 +30,8 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
 
         _binding = FragmentMovieNavigationBinding.inflate(inflater, container, false)
         trendingAdapter = TrendingAdapter(context, this)
-        binding.trendingRecyclerView.layoutManager = GridLayoutManager(container?.context, 2)
+        binding.trendingRecyclerView.layoutManager =
+            LinearLayoutManager(container?.context, LinearLayoutManager.HORIZONTAL, false)
         binding.trendingRecyclerView.adapter = trendingAdapter
 
         observeModel()
@@ -58,7 +60,7 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
         }
     }
 
-    private fun observeModel(){
+    private fun observeModel() {
         viewModel.movies.observe(viewLifecycleOwner, {
             trendingAdapter.movies = it
             trendingAdapter.notifyDataSetChanged()
@@ -69,7 +71,7 @@ class MovieNavigationFragment : Fragment(), TrendingCallback {
         })
     }
 
-    private fun showError(description: String){
+    private fun showError(description: String) {
         val errorDialog = ErrorDialog.newInstance(description)
         errorDialog.show(parentFragmentManager, ErrorDialog.TAG)
     }
