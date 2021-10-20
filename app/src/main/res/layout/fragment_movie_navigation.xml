@@ -13,37 +13,40 @@
         android:layout_height="wrap_content"
         android:iconifiedByDefault="false"
         android:queryHint="@string/search_movie_query_text"
+        app:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trending_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="80dp"
+        android:layout_marginTop="10dp"
+        android:background="#B31F12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trending_title_text_view"
+        tools:itemCount="10"
+        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        tools:listitem="@layout/trending_movie_row_item" />
+
     <TextView
         android:id="@+id/trending_title_text_view"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/movie_search_view"
-        app:layout_constraintTop_toBottomOf="@+id/movie_search_view"
-        android:textAlignment="center"
+        android:layout_marginStart="10dp"
+        android:text="@string/trending_movies"
         android:textSize="@dimen/trending_movies_title_text_size"
-        android:text="@string/trending_movies"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movie_search_view" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/trending_title_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/trending_title_text_view">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/trending_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            tools:itemCount="10"
-            tools:listitem="@layout/movie_row_item">
-        </androidx.recyclerview.widget.RecyclerView>
-
-    </LinearLayout>
+<!--    <include-->
+<!--        android:id-->
+<!--        layout="@layout/movie_list_container"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
