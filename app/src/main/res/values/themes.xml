@@ -14,7 +14,7 @@
          Customize your theme here. -->
         <item name="android:windowBackground">@color/black</item>
         <item name="android:textColor">#ffffffff</item>
-
+        <item name="editTextStyle">@style/EditTextStyle</item>
     </style>
 
     <style name="Theme.MovieApp.NoActionBar">

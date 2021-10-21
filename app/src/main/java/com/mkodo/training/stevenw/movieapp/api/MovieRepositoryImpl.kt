@@ -7,9 +7,9 @@ import kotlinx.coroutines.withContext
 
 object MovieRepositoryImpl : MovieRepository {
 
-    val api = TheMovieDbApi.create()
+    private val api = TheMovieDbApi.create()
 
-    var listOfMovies: List<Movie>? = null
+    private var listOfMovies: List<Movie>? = null
 
     override suspend fun getMovie(id: String) =
         withContext(Dispatchers.IO) {
