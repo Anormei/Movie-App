@@ -49,7 +49,22 @@ class MovieNavigationViewModelShould {
 
         navigationViewModel.loadTrendingMovies("movie", "week")
         assertTrue(navigationViewModel.movies.value == movieResults.results)
-        coVerify(exactly = 1) { repository.getTrendingMovies("movie", "week") }
+    }
+
+    @Test
+    fun `make a call on repository when loading genre specific movies`() {
+        navigationViewModel.loadGenreSpecificMovies("id", "movie")
+        coVerify ( exactly = 1 ) { repository.discoverMovies()}
+    }
+
+    @Test
+    fun `display genre-specific movies`() {
+        val movieResults = MovieResults(listOf(Movie("id","Title", "Overview", "Image")))
+        coEvery{repository.discoverMovies(includeGenres = any(), sortBy = any())} returns movieResults
+
+        navigationViewModel.loadGenreSpecificMovies("id", "sort")
+        assertTrue(navigationViewModel.categorisedMovies.value!!.contains(movieResults))
+
     }
 
     @Test
@@ -60,4 +75,6 @@ class MovieNavigationViewModelShould {
         assertTrue(navigationViewModel.showError.value == R.string.error_loading_movies)
         coVerify(exactly = 1) { repository.getTrendingMovies("movie", "week") }
     }
+
+
 }

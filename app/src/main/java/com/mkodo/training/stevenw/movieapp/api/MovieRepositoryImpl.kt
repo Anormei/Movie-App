@@ -2,6 +2,7 @@ package com.mkodo.training.stevenw.movieapp.api
 
 import android.util.Log
 import com.mkodo.training.stevenw.movieapp.models.Movie
+import com.mkodo.training.stevenw.movieapp.models.MovieResults
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -17,7 +18,6 @@ object MovieRepositoryImpl : MovieRepository {
         }
 
     private suspend fun getMovieFromApi(id: String): Movie {
-        Log.i("MovieRepositoryImpl", "getMovieFromApi: ")
         return api.getMovie(id)
     }
 
@@ -27,4 +27,8 @@ object MovieRepositoryImpl : MovieRepository {
             listOfMovies = movieResults.results
             movieResults
         }
+
+    override suspend fun discoverMovies(params: DiscoverMoviesParamsBuilder): MovieResults {
+        TODO("Not yet implemented")
+    }
 }

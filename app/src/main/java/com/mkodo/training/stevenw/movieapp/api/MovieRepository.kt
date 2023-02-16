@@ -13,4 +13,6 @@ interface MovieRepository {
         timeWindow: String
     ): MovieResults
 
+    suspend fun discoverMovies(params: DiscoverMoviesParamsBuilder): MovieResults
+
 }
